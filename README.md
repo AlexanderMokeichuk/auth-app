@@ -15,21 +15,12 @@
 git clone <your-repo-url>
 cd auth-app
 
-# Установите concurrently для одновременного запуска frontend и backend
-bun add -D concurrently
+# Установите зависимости (автоматически создаст .env файлы)
+npm install
 
-# Настройте переменные окружения
-cp backend/.env.example backend/.env
-cp frontend/.env.example frontend/.env
-# Отредактируйте .env файлы под ваше окружение
-
-# Установите зависимости для обеих частей проекта
+# Настройте базу данных и запустите
 npm run setup
-
-# Настройте базу данных
 npm run prisma:push
-
-# Запустите проект (frontend + backend одновременно)
 npm run dev
 ```
 
@@ -38,6 +29,8 @@ npm run dev
 - **Frontend**: http://localhost:5173
 - **Backend**: http://localhost:5000
 - **API Health**: http://localhost:5000/api/health
+
+> 💡 **Автоматическая настройка**: .env файлы создаются автоматически из .env.example
 
 ## 📁 Структура
 
@@ -57,11 +50,11 @@ npm run backend          # Запустить только backend
 npm run frontend         # Запустить только frontend
 
 # Первичная настройка
-cp backend/.env.example backend/.env    # Создать конфиг backend
-cp frontend/.env.example frontend/.env  # Создать конфиг frontend
+npm install              # Установить зависимости + создать .env файлы
+npm run setup            # Полная настройка проекта
+npm run create-env       # Создать .env файлы вручную (если нужно)
 
-# Установка
-npm run setup            # Установить все зависимости
+# Установка компонентов
 npm run install:backend  # Установить зависимости backend
 npm run install:frontend # Установить зависимости frontend
 
@@ -84,51 +77,31 @@ npm run clean            # Очистить node_modules
 
 ## ⚙️ Настройка
 
-Скопируйте файлы `.env.example` и настройте под свое окружение:
+.env файлы создаются автоматически при `npm install`.
 
-```bash
-# Backend
-cp backend/.env.example backend/.env
+**Настройте только базу данных в `backend/.env`:**
 
-# Frontend  
-cp frontend/.env.example frontend/.env
+### Вариант 1: SQLite (самый простой)
+```env
+DATABASE_URL="file:./dev.db"
 ```
 
-### Backend (.env)
+### Вариант 2: PostgreSQL (рекомендуется)
 ```env
-# Server Configuration
-PORT=5000
-NODE_ENV=development
-
-# Database
 DATABASE_URL="postgresql://authuser:authpass123@localhost:5433/authapp?schema=public"
-
-# JWT
-JWT_SECRET="your-super-secret-jwt-key-at-least-32-characters-long"
-JWT_EXPIRES_IN="24h"
-
-# Security
-BCRYPT_ROUNDS=12
-CORS_ORIGIN="http://localhost:5173"
 ```
 
-### Frontend (.env)
-```env
-# API Configuration
-VITE_API_BASE_URL=http://localhost:5000/api
-VITE_API_TIMEOUT=10000
+### Вариант 3: Docker PostgreSQL (один клик)
+```bash
+# Запустите PostgreSQL в Docker
+docker run --name postgres-auth \
+  -e POSTGRES_PASSWORD=authpass123 \
+  -e POSTGRES_USER=authuser \
+  -e POSTGRES_DB=authapp \
+  -p 5433:5432 -d postgres:15
 
-# App Configuration
-VITE_APP_NAME=Auth App
-VITE_APP_VERSION=1.0.0
-
-# Auth Configuration
-VITE_TOKEN_KEY=auth_token
-VITE_AUTO_LOGOUT_ON_401=true
-
-# Development
-VITE_DEBUG_MODE=true
-VITE_LOG_LEVEL=info
+# Используйте в backend/.env:
+DATABASE_URL="postgresql://authuser:authpass123@localhost:5433/authapp?schema=public"
 ```
 
 ## 🔧 Решение проблем
