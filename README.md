@@ -68,67 +68,6 @@ npm run build            # Собрать проект для production
 npm run clean            # Очистить node_modules
 ```
 
-## 🧪 Тестирование
-
-1. Откройте http://localhost:5173
-2. Нажмите "create a new account"
-3. Зарегистрируйтесь: `test@example.com` / `Test123!@#`
-4. Должен открыться Dashboard с информацией о пользователе
-
-## ⚙️ Настройка
-
-.env файлы создаются автоматически при `npm install`.
-
-**Настройте только базу данных в `backend/.env`:**
-
-### Вариант 1: SQLite (самый простой)
-```env
-DATABASE_URL="file:./dev.db"
-```
-
-### Вариант 2: PostgreSQL (рекомендуется)
-```env
-DATABASE_URL="postgresql://authuser:authpass123@localhost:5433/authapp?schema=public"
-```
-
-### Вариант 3: Docker PostgreSQL (один клик)
-```bash
-# Запустите PostgreSQL в Docker
-docker run --name postgres-auth \
-  -e POSTGRES_PASSWORD=authpass123 \
-  -e POSTGRES_USER=authuser \
-  -e POSTGRES_DB=authapp \
-  -p 5433:5432 -d postgres:15
-
-# Используйте в backend/.env:
-DATABASE_URL="postgresql://authuser:authpass123@localhost:5433/authapp?schema=public"
-```
-
-## 🔧 Решение проблем
-
-**Порты заняты:**
-```bash
-lsof -ti :5000 | xargs kill -9
-lsof -ti :5173 | xargs kill -9
-```
-
-**CORS ошибки:**
-- Проверьте `CORS_ORIGIN="http://localhost:5173"` в `backend/.env`
-
-**Проблемы с базой данных:**
-- Убедитесь что PostgreSQL запущен на порту 5433
-- Проверьте правильность `DATABASE_URL` в `backend/.env`
-
-**Проблемы с зависимостями:**
-```bash
-npm run clean
-npm run setup
-```
-
-**Сброс базы данных:**
-```bash
-npm run prisma:push
-```
 
 ## 🚀 Стек технологий
 
