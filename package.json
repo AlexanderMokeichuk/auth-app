@@ -1,0 +1,38 @@
+{
+  "name": "auth-app",
+  "version": "1.0.0",
+  "description": "Full-stack authentication app with Bun TypeScript backend and React frontend",
+  "scripts": {
+    "dev": "concurrently \"npm run backend\" \"npm run frontend\"",
+    "backend": "cd backend && bun run dev",
+    "backend:build": "cd backend && bun run build",
+    "backend:start": "cd backend && bun run start",
+    "frontend": "cd frontend && bun run dev",
+    "start": "npm run dev",
+    "build": "npm run build:backend && npm run build:frontend",
+    "build:frontend": "cd frontend && bun run build",
+    "build:backend": "cd backend && bun run build",
+    "install:frontend": "cd frontend && bun install",
+    "install:backend": "cd backend && bun install",
+    "prisma:generate": "cd backend && bun run db:generate",
+    "prisma:migrate": "cd backend && bun run db:migrate",
+    "prisma:push": "cd backend && bun run db:push",
+    "prisma:studio": "cd backend && bun run db:studio",
+    "db:seed": "cd backend && bun run db:seed",
+    "clean": "cd frontend && rm -rf node_modules dist .vite && cd ../backend && rm -rf node_modules dist",
+    "setup": "npm run install:backend && npm run install:frontend && npm run prisma:generate",
+    "test:backend": "cd backend && bun test",
+    "test:frontend": "cd frontend && bun run test",
+    "lint:frontend": "cd frontend && bun run lint"
+  },
+  "keywords": ["auth", "bun", "express", "typescript", "prisma", "react", "jwt"],
+  "author": "Alex",
+  "license": "MIT",
+  "devDependencies": {
+    "concurrently": "^9.1.2"
+  },
+  "engines": {
+    "node": ">=18.0.0",
+    "bun": ">=1.0.0"
+  }
+}

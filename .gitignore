@@ -1,0 +1,26 @@
+# Dependencies в корне (concurrently и др.)
+node_modules/
+
+# Случайно созданные .env в корне
+.env
+.env.local
+.env.*.local
+
+# IDE файлы (применяется ко всему проекту)
+.vscode/
+.idea/
+*.swp
+*.swo
+
+# OS файлы
+.DS_Store
+.DS_Store?
+Thumbs.db
+
+# Логи в корне
+*.log
+npm-debug.log*
+
+# Временные файлы
+*.tmp
+*.temp
