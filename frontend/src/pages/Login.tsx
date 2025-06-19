@@ -50,7 +50,8 @@ const Login: React.FC = () => {
         try {
             setIsSubmitting(true);
             await login(data.email, data.password);
-        } catch (error) {
+        } catch {
+            //
         } finally {
             setIsSubmitting(false);
         }
