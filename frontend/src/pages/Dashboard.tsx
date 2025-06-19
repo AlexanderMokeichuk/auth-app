@@ -54,7 +54,7 @@ const Dashboard: React.FC = () => {
                         <div className="flex items-center space-x-3 cursor-pointer group"
                              onClick={() => window.location.reload()}>
                             <img
-                                src="/src/assets/Vector.svg"
+                                src="/src/assets/vector.svg"
                                 alt="2Captcha Icon"
                                 className="h-[30px] w-[21px] transition-all duration-200 group-hover:scale-105"
                             />
