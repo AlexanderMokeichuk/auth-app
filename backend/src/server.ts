@@ -47,22 +47,19 @@ process.on('SIGINT', () => gracefulShutdown('SIGINT'));
 process.on('SIGTERM', () => gracefulShutdown('SIGTERM'));
 
 const startServer = async () => {
+    console.log('🌐 Starting HTTP server...');
+    app.listen(config.port, '0.0.0.0', () => {
+        console.log('✅ HTTP server started successfully');
+        console.log(`🚀 Server running on port ${config.port}`);
+        console.log(`📱 Environment: ${config.nodeEnv}`);
+        console.log(`🌐 CORS origin: ${config.corsOrigin}`);
+    });
+
     try {
         console.log('🔌 Attempting to connect to database...');
         await connectDB();
-        console.log('✅ Database connected successfully');
-
-        console.log('🌐 Starting HTTP server...');
-        app.listen(config.port, '0.0.0.0', () => {
-            console.log('✅ HTTP server started successfully');
-            console.log(`🚀 Server running on port ${config.port}`);
-            console.log(`📱 Environment: ${config.nodeEnv}`);
-            console.log(`🌐 CORS origin: ${config.corsOrigin}`);
-        });
     } catch (error) {
-        console.error('❌ Failed to start server:', error);
-        console.error('❌ Error details:', error);
-        process.exit(1);
+        console.error('❌ Server running without database connection:', error);
     }
 };
 

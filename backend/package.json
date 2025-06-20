@@ -5,11 +5,13 @@
   "main": "dist/server.js",
   "scripts": {
     "dev": "bun --watch src/server.ts",
-    "build": "bun build src/server.ts --outdir dist --target bun",
+    "build": "prisma generate && bun build src/server.ts --outdir dist --target bun",
     "start": "bun dist/server.js",
+    "postinstall": "prisma generate",
     "db:generate": "prisma generate",
     "db:push": "prisma db push",
     "db:migrate": "prisma migrate dev",
+    "db:migrate:deploy": "prisma migrate deploy",
     "db:studio": "prisma studio",
     "db:seed": "bun src/scripts/seed.ts"
   },
@@ -25,11 +27,11 @@
     "@types/jsonwebtoken": "^9.0.5",
     "zod": "^3.22.4",
     "helmet": "^7.1.0",
-    "express-rate-limit": "^7.1.5"
+    "express-rate-limit": "^7.1.5",
+    "prisma": "^5.7.1"
   },
   "devDependencies": {
     "@types/node": "^20.10.4",
-    "typescript": "^5.3.3",
-    "prisma": "^5.7.1"
+    "typescript": "^5.3.3"
   }
 }
