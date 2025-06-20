@@ -7,7 +7,7 @@ const configSchema = z.object({
     JWT_SECRET: z.string().min(32),
     JWT_EXPIRES_IN: z.string().default('24h'),
     BCRYPT_ROUNDS: z.string().default('12'),
-    CORS_ORIGIN: z.string().default('http://localhost:3000'),
+    CORS_ORIGIN: z.string().default('https://auth-app-1-6xgh.onrender.com'),
 });
 
 const env = {
