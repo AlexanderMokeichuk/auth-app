@@ -1,4 +1,9 @@
 import React from 'react';
+import frame from "@/assets/Frame1.svg"
+import vector3 from "@/assets/Vector3.svg"
+import circle from "@/assets/circle-check.svg"
+import star from "@/assets/star.svg"
+
 
 interface SoftwareCardProps {
     icon: string;
@@ -43,7 +48,7 @@ const SoftwareCard: React.FC<SoftwareCardProps> = ({
                     <div className="flex items-end gap-2">
                         <h3 className="text-[20px] font-semibold text-[#333333]">{title}</h3>
                         <img
-                            src="/src/assets/Frame1.svg"
+                            src={frame}
                             alt="arrow"
                             className="h-[20px] w-[20px] mb-[4px]"
                         />
@@ -53,7 +58,7 @@ const SoftwareCard: React.FC<SoftwareCardProps> = ({
                         <div
                             className={'flex sm:hidden w-fit items-center justify-center gap-1 px-3 py-[1px] rounded-[15px] bg-[#00A1B3]'}>
                             <img
-                                src="/src/assets/Vector3.svg"
+                                src={vector3}
                                 alt="official"
                                 className="h-[16px] w-[11px]"
                             />
@@ -65,7 +70,7 @@ const SoftwareCard: React.FC<SoftwareCardProps> = ({
 
                     <div className={'hidden sm:flex items-center gap-2'}>
                         <img
-                            src="/src/assets/circle-check.svg"
+                            src={circle}
                             alt="check"
                             className="h-[16px] w-[16px]"
                         />
@@ -79,7 +84,7 @@ const SoftwareCard: React.FC<SoftwareCardProps> = ({
                             className="flex items-center justify-center gap-1 w-[60px] h-[24px] rounded-[12px] bg-[#E1EAF6]">
                             <span className="text-[14px] font-[600] text-[#333333]">{rating}</span>
                             <img
-                                src="/src/assets/star.svg"
+                                src={star}
                                 alt="star"
                                 className="h-[14px] w-[14px]"
                             />
@@ -93,7 +98,7 @@ const SoftwareCard: React.FC<SoftwareCardProps> = ({
                             <div
                                 className={'flex items-center justify-center gap-1 px-3 py-[1px] rounded-[15px] bg-[#00A1B3]'}>
                                 <img
-                                    src="/src/assets/Vector3.svg"
+                                    src={vector3}
                                     alt="official"
                                     className="h-[16px] w-[11px]"
                                 />
@@ -116,7 +121,7 @@ const SoftwareCard: React.FC<SoftwareCardProps> = ({
 
             <div className={'flex sm:hidden items-center gap-2'}>
                 <img
-                    src="/src/assets/circle-check.svg"
+                    src={circle}
                     alt="check"
                     className="h-[16px] w-[16px]"
                 />
@@ -134,7 +139,7 @@ const SoftwareCard: React.FC<SoftwareCardProps> = ({
                     className="flex items-center justify-center gap-1 w-[60px] h-[24px] rounded-[12px] bg-[#E1EAF6]">
                     <span className="text-[14px] font-[600] text-[#333333]">{rating}</span>
                     <img
-                        src="/src/assets/star.svg"
+                        src={star}
                         alt="star"
                         className="h-[14px] w-[14px]"
                     />

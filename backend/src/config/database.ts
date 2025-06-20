@@ -31,10 +31,6 @@ export const connectDB = async (): Promise<void> => {
     } catch (error) {
         console.error('❌ Database connection failed:', error);
 
-        if (error.message.includes('does not exist')) {
-            console.error('💡 Hint: Tables don\'t exist. Make sure "prisma db push" was executed during build');
-        }
-
         throw error;
     }
 };

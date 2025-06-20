@@ -1,5 +1,9 @@
 import React from 'react';
 import SoftwareCard from './SoftwareCard';
+import logo from "@/assets/logo.svg"
+import group49 from "@/assets/Group49.svg"
+import group50 from "@/assets/Group50.svg"
+
 
 interface SoftwareItem {
     id: string;
@@ -15,7 +19,7 @@ interface SoftwareItem {
 const softwareData: SoftwareItem[] = [
     {
         id: '1',
-        icon: '/src/assets/Group49.svg',
+        icon: group49,
         title: '2Captcha solver',
         description: 'Extension for the Google Chrome browser that automatically recognizes captchas such as ReCaptcha V2, V3, GeeTest, Arkose Labs FunCaptcha, Human Captcha and others.',
         rating: 4.6,
@@ -25,7 +29,7 @@ const softwareData: SoftwareItem[] = [
     },
     {
         id: '2',
-        icon: '/src/assets/logo.svg',
+        icon: logo,
         title: 'Puppeteer plugin to solve reCAPTCHAs automatically',
         description: 'Solves reCAPTCHAs automatically, using a single line of code.',
         rating: 4.6,
@@ -35,7 +39,7 @@ const softwareData: SoftwareItem[] = [
     },
     {
         id: '3',
-        icon: '/src/assets/Group50.svg',
+        icon: group50,
         title: '2captcha-javascript',
         description: 'JavaScript npm package for easy integration with the API of 2captcha captcha solving service to bypass recaptcha, funcaptcha, geetest and solve any other captchas.',
         rating: 4.6,

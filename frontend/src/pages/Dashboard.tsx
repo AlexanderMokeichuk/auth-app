@@ -7,6 +7,10 @@ import SoftwareList from '@/components/SoftwareList';
 import {Button} from '@/components/ui/button';
 import {Card, CardContent, CardHeader, CardTitle} from '@/components/ui/card';
 import {User, Activity, Clock, LogOut} from 'lucide-react';
+import vectorIcon from "@/assets/vector.svg"
+import captha2 from "@/assets/2Captcha.svg"
+
+
 
 interface HealthStatus {
     status: string;
@@ -54,12 +58,12 @@ const Dashboard: React.FC = () => {
                         <div className="flex items-center space-x-3 cursor-pointer group"
                              onClick={() => window.location.reload()}>
                             <img
-                                src="/src/assets/vector.svg"
+                                src={vectorIcon}
                                 alt="2Captcha Icon"
                                 className="h-[30px] w-[21px] transition-all duration-200 group-hover:scale-105"
                             />
                             <img
-                                src="/src/assets/2Captcha.svg"
+                                src={captha2}
                                 alt="2Captcha"
                                 className="h-[19px] w-[94px] transition-opacity duration-200 group-hover:opacity-80"
                             />
